@@ -68,7 +68,7 @@ export default {
           expanded: false,
           title: 'Online Daf Sessions With Hooman Tootoonchian',
           text: 'Finally, modify the template section to bind the boxExpanded property to the class of the box div. When the boxExpanded property is true, the box-expanded class will be applied to the box div, which will cause it to fill the entire screen',
-          img: "https://i.pinimg.com/564x/8f/95/1b/8f951b9d4df725eb600bcb550c5860e0.jpg",
+          img: "http://192.168.43.140:3000/files/969da544a76e93f04caf0e2578aa1dc8",
         },
         {
           expanded: false,
