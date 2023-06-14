@@ -44,6 +44,7 @@ import {get, post} from '@/api';
 import { setCookie, getCookie } from '@/cookie';
 
 export default {
+  emits: ["loading-started", "loading-ended"],
   name: 'Login',
   components: {},
   data() {
@@ -62,13 +63,14 @@ export default {
     },
     verify() {
       if (this.code.length < 3) return;
+      this.$emit("loading-started", "true");
       post('/auth/verify', {phone: this.phone, code: this.code})
           .then(response => {
             // Handle the response data
             if (response.success) {
               setCookie("app-token", response.token, 7);
               setCookie("app-channel", response.channel, 7);
-              this.$router.push('/');
+              window.location.assign("/");
             }
           })
           .catch(error => {

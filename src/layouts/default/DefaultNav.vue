@@ -101,7 +101,7 @@
             <span>ورود</span>
           </router-link>
         </li>
-        <li><a @click="logout()" v-if="user != null">
+        <li v-if="user != null"><a @click="logout()" >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
             <path d="M7.5 1v7h1V1h-1z"/>
             <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
@@ -145,6 +145,7 @@ import {deleteCookie, getCookie} from '@/cookie';
 export default {
   data() {
     return {
+      loading: false,
       user: null,
       navs: ["خانه", "گربه", "اسکاتیش"],
       navbarExpanded: false,
@@ -169,6 +170,7 @@ export default {
     logout() {
       deleteCookie('app-token');
       deleteCookie('app-channel');
+      window.location.assign("/");
     }
 
   }
