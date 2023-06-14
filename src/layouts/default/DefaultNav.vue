@@ -8,22 +8,16 @@
         <li>خزندگان</li>
         <li>احبار</li>
       </ul>
-      <div class="breadcrumb-follow">
-        <h1>
-            <span v-for="nav in navs">
-              <span v-text="nav"></span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
-              </svg>
-            </span>
-        </h1>
-      </div>
       <div class="menu-arrow-icon" @click="() => {mainCategoriesSlidedDown = !mainCategoriesSlidedDown}">
-        <svg v-if="!mainCategoriesSlidedDown" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+        <svg v-if="!mainCategoriesSlidedDown" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+                d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
         </svg>
-        <svg v-if="mainCategoriesSlidedDown" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-compact-up" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z"/>
+        <svg v-if="mainCategoriesSlidedDown" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             fill="currentColor" class="bi bi-chevron-compact-up" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+                d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z"/>
         </svg>
       </div>
     </div>
@@ -40,7 +34,7 @@
                   d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
             </svg>
             &nbsp
-            دسته بندی ها
+            گروه ها
           </a>
         </li>
         <li>
@@ -53,7 +47,7 @@
                   d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
             </svg>
             &nbsp
-            قراردادها
+            پیمان نامه
           </a>
         </li>
         <li>
@@ -70,7 +64,7 @@
               <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
             </svg>
             &nbsp
-            حساب تجاری
+            مکالمات
           </a>
         </li>
         <li><a href="#">
@@ -82,7 +76,38 @@
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
           </svg>
           &nbsp
-          پروفایل
+          دیگران
+        </a>
+        </li>
+        <li>
+          <router-link to="/profile/@mojtaba" v-if="user != null">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-person-circle"
+                 viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>&nbsp;
+            <span>mojtaba</span>
+          </router-link>
+          <router-link to="/login" v-if="user == null">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-person-circle"
+                 viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>&nbsp;
+            <span>ورود</span>
+          </router-link>
+        </li>
+        <li><a @click="logout()" v-if="user != null">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+            <path d="M7.5 1v7h1V1h-1z"/>
+            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+          </svg>
+          &nbsp
+          خروج
         </a>
         </li>
       </ul>
@@ -90,9 +115,10 @@
     <nav class="navbar navbar-expand-md navbar-light fixed-bottom">
       <div class="col col-12 p-1">
         <div class="input-group mb-2" style="width: 100% !important;">
-          <input type="text" class="form-control search-home" placeholder="جست و جو برای ..." style="direction: rtl;">
-          <button class="btn btn-dark nav-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          <input v-if="showSearch" type="text" class="form-control search-home" placeholder="جست و جو برای ..."
+                 style="direction: rtl;">
+          <button @click="() => {showSearch = !showSearch}" class="btn btn-dark nav-menu" style="background: #ea8685;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                  class="bi bi-search-heart"
                  viewBox="0 0 16 16">
               <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
@@ -100,9 +126,11 @@
                   d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
             </svg>
           </button>
-          <button class="btn btn-dark nav-menu" @click="toggleOptions()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          <button class="btn btn-dark nav-menu" @click="toggleOptions()" style="background: #596275;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list"
+                 viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
             </svg>
           </button>
         </div>
@@ -112,14 +140,21 @@
 </template>
 
 <script>
+import {deleteCookie, getCookie} from '@/cookie';
+
 export default {
   data() {
     return {
+      user: null,
       navs: ["خانه", "گربه", "اسکاتیش"],
       navbarExpanded: false,
       showOptions: false,
+      showSearch: false,
       mainCategoriesSlidedDown: false
     }
+  },
+  beforeMount() {
+    this.user = getCookie('app-token');
   },
   methods: {
     toggleNavbar() {
@@ -130,14 +165,19 @@ export default {
     },
     toggleOptions() {
       this.showOptions = !this.showOptions;
+    },
+    logout() {
+      deleteCookie('app-token');
+      deleteCookie('app-channel');
     }
 
   }
 }
 </script>
 <style scoped>
+
 .top-header {
-  background: #ffffff;
+  background: #ea8685;
   box-shadow: 0 0 5px #444;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
@@ -160,15 +200,15 @@ export default {
 
 .top-header ul li {
   padding: 5px;
-  border-bottom: 1px solid #d1d1d1;
+  border-bottom: 1px solid #303952;
   list-style: none;
 }
 
-.top-header ul li:active{
+.top-header ul li:active {
   background: #e5e5e5;
 }
 
-.breadcrumb-follow{
+.breadcrumb-follow {
   border-bottom: 1px solid #e1e1e1;
 }
 
@@ -181,9 +221,8 @@ export default {
 .navbar {
   padding-bottom: 0 !important;
   border-radius: 1rem;
-  box-shadow: 0 0 4px #333333;
-  margin-bottom: 5px;
-  background: #ffffff;
+  margin: 10px;
+  width: fit-content;
 }
 
 .search-home, .nav-menu {
@@ -194,7 +233,7 @@ export default {
   line-height: 0rem;
 }
 
-.menu-arrow-icon{
+.menu-arrow-icon {
   cursor: pointer;
   display: inline-block;
 }

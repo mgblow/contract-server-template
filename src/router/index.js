@@ -2,14 +2,24 @@ import Contracts from '../views/Contracts.vue'
 import {createRouter, createWebHashHistory} from 'vue-router'
 import Contract from "../views/Contract.vue";
 import Box from "../views/Box.vue"
-import Home from "../views/Home.vue";
+import Profile from "../views/Profile.vue";
+import AddBox from "../views/AddBox.vue";
+import Login from "../views/Login.vue";
 
 const history = createWebHashHistory()
 const routes = [
     {
-        path: '/dump',
-        name: 'Home',
-        component: Home,
+        path: '/login',
+        name: 'Login',
+        component: Login,
+        meta: {
+            layout: 'default'
+        }
+    },
+    {
+        path: '/profile/:id',
+        name: 'Profile',
+        component: Profile,
         meta: {
             layout: 'default'
         }
@@ -23,7 +33,15 @@ const routes = [
         }
     },
     {
-        path: '/contract/:id',
+        path: '/box/add',
+        name: 'AddBox',
+        component: AddBox,
+        meta: {
+            layout: 'default'
+        }
+    },
+    {
+        path: '/box/:id',
         name: 'Contract',
         component: Contract,
         meta: {

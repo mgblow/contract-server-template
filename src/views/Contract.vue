@@ -48,7 +48,7 @@
               <div class="user-profile">
                 <div class="col col-xs-10 communication" style="direction: rtl">
                   <h4>
-                    <a href="#">@Mojtaba</a>
+                    <router-link to="/profile/@mojtaba">@mojtaba</router-link>
                   </h4>
                   <button class="btn btn-dark btn-sm">تماس</button>&nbsp;
                   <button class="btn btn-success btn-sm">پیام</button>&nbsp;
@@ -172,7 +172,7 @@ export default {
   position: absolute;
   top: 0;
   width: 100%;
-  background: #000000;
+  background: #574b90;
   opacity: 0.6;
   padding: 10px;
   color: #ffffff;

@@ -1,63 +1,27 @@
 <template>
   <div class="container page" style="padding:0;margin-top: 50px;margin-bottom: 50px;">
     <div class="row">
-      <div class="col-12 p-1">
-        <div class="box" @click="boxClicked(post)">
-          <img class="" :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
-          <hr>
-          <div class="row content">
-            <h2 v-text="post.title.slice(0, 60)"></h2>
+      <div class="col-12 p-1 profile" style="direction: ltr !important;">
+        <div class="user-profile mb-2">
+          <div class="col col-xs-10 communication" style="direction: rtl">
+            <h4 style="direction: ltr;color:">
+              <router-link to="/profile/@mojtaba">mojtaba</router-link>
+            </h4>            
+            <button class="btn btn-warning btn-sm" style="margin-left:10px;background: #f19066;color: #596275; border: 1px solid #596275;">Hi Fox</button>&nbsp;
+            <button class="btn btn-success p-2 mb-2 btn-sm" style="margin-left:10px;background: #f3a683;color: #596275; border: 1px solid #596275;">Hi Friends</button>&nbsp;
+            <button class="btn btn-dark btn-sm" style="background: #e77f67;color: #596275; border: 1px solid #596275;">I am</button>&nbsp;
           </div>
-          <div class="row inside">
-            <div class="col-6 p-1 col-xs-6 col-sm-3 col-md-3" v-for="post in posts">
-              <div class="box" @click="boxClicked(post)">
-                <img class="image"
-                     :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
-                <div class="row content">
-                  <h2 v-text="post.title.slice(0, 60)"></h2>
-                </div>
-              </div>
-            </div>
+          <div class="image" style="width: 80px;height: 80px;border-radius: 100%;overflow: hidden;">
+            <img :src="require('@/assets/fox.jpg')" style="width: 80px;height: 80px;">
           </div>
         </div>
       </div>
-      <div class="col-12 p-1">
+      <div class="col-4 p-1 col-xs-3 col-sm-3 col-md-3" v-for="post in posts">
         <div class="box" @click="boxClicked(post)">
-          <img class="" :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
-          <hr>
+          <img class="image"
+               :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/0/03/Rumfold_Red_Bull.png'">
           <div class="row content">
-            <h2 v-text="post.title.slice(0, 60)"></h2>
-          </div>
-          <div class="row inside">
-            <div class="col-6 p-1 col-xs-6 col-sm-3 col-md-3" v-for="post in posts">
-              <div class="box" @click="boxClicked(post)">
-                <img class="image"
-                     :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
-                <div class="row content">
-                  <h2 v-text="post.title.slice(0, 60)"></h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 p-1">
-        <div class="box" @click="boxClicked(post)">
-          <img class="" :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
-          <hr>
-          <div class="row content">
-            <h2 v-text="post.title.slice(0, 60)"></h2>
-          </div>
-          <div class="row inside">
-            <div class="col-6 p-1 col-xs-6 col-sm-3 col-md-3" v-for="post in posts">
-              <div class="box" @click="boxClicked(post)">
-                <img class="image"
-                     :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
-                <div class="row content">
-                  <h2 v-text="post.title.slice(0, 60)"></h2>
-                </div>
-              </div>
-            </div>
+            <h2 v-text="post.title.slice(0, 30)"></h2>
           </div>
         </div>
       </div>
@@ -67,36 +31,24 @@
 </template>
 
 <script>
-import { setCookie, getCookie } from '@/cookie';
-
 export default {
-  name: 'Home',
+  name: 'Profile',
   components: {},
   data() {
     return {
-      post: {
-        title: 'لورم ایپسوم متن ساختگی با تولید داخلی بر پایه منطق خارجی',
-        text: 'Finally, modify the template section to bind the boxExpanded property to the class of the box div. When the boxExpanded property is true, the box-expanded class will be applied to the box div, which will cause it to fill the entire screen',
-      },
       posts: [
-        {
-          expanded: false,
-          title: 'Online Daf Sessions With Hooman Tootoonchian',
-          text: 'Finally, modify the template section to bind the boxExpanded property to the class of the box div. When the boxExpanded property is true, the box-expanded class will be applied to the box div, which will cause it to fill the entire screen',
-          img: "https://i.pinimg.com/564x/8f/95/1b/8f951b9d4df725eb600bcb550c5860e0.jpg",
-        },
         {
           expanded: false,
           title: 'Packahge B',
           text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.',
-          img: "https://i.pinimg.com/564x/9b/3e/6b/9b3e6b629891dec3087b0f06df508b6a.jpg"
+          img: "https://upload.wikimedia.org/wikipedia/commons/0/03/Rumfold_Red_Bull.png"
 
         },
         {
           expanded: false,
           title: 'Packahge for the new learners who are veryconserned about learning new technologies',
           text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.',
-          img: 'https://i.pinimg.com/564x/1f/ec/6b/1fec6b5302b88d087dbb6071e0397e7b.jpg'
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Straight-eared_Scottish_Fold.jpg/800px-Straight-eared_Scottish_Fold.jpg'
         },
         {
           expanded: false,
@@ -106,7 +58,8 @@ export default {
         {
           expanded: false,
           title: 'Packahge B',
-          text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.'
+          text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Adult_Scottish_Fold.jpg/800px-Adult_Scottish_Fold.jpg'
         },
         {
           expanded: false,
@@ -127,17 +80,17 @@ export default {
         {
           expanded: false,
           title: 'Packahge B',
-          text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.'
+          text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Blue_Toby.jpg/800px-Blue_Toby.jpg'
         },
         {
           expanded: false,
           title: 'Packahge B',
-          text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.'
+          text: 'This appears to be a Vue.js single file component that contains a template, script, and style section. The template section contains HTML code that defines the structure of the component, including a container div, row divs, and box divs that contain images, headers, and paragraphs. The script section defines a Vue.js component named "Home", which has an empty components object and a method named "boxClicked". The style section contains CSS code that styles the box divs with background colors, borders, and box shadows, as well as hover and active effects on the boxes.',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Golden_Rebel_D%27Oaxaca_of_Feliland_4_months.JPG/1024px-Golden_Rebel_D%27Oaxaca_of_Feliland_4_months.JPG'
         }
 
       ],
-
-
     }
   },
   methods: {
@@ -156,6 +109,15 @@ export default {
 </script>
 
 <style scoped>
+.profile{
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.profile button{
+  border-radius: 1rem;
+}
+
 .page {
   animation: slideUp 0.2s ease-out;
 }
@@ -172,7 +134,6 @@ export default {
     transition: transform 0.2s ease-in-out;
   }
 }
-
 
 .inner-box {
   background: #ffffff;
@@ -191,9 +152,7 @@ export default {
   position: relative;
   cursor: pointer;
   width: 100%;
-}
-.box .box{
-  height: 200px;
+  height: 100px;
 }
 
 .box img {
@@ -203,11 +162,11 @@ export default {
 }
 
 .box h2 {
-  font-size: 1rem;
+  font-size: 0.8rem !important;
 }
 
 .box p {
-  font-size: 0.6rem;
+  font-size: 0.4rem;
 }
 
 .box:hover {
@@ -237,8 +196,8 @@ export default {
   position: absolute;
   top: 0;
   width: 100%;
-  background: #000000;
-  opacity: 0.6;
+  background: #574b90;
+  opacity: 0.5;
   padding: 10px;
   color: #ffffff;
   margin: 0;
@@ -257,15 +216,14 @@ export default {
   word-break: break-all;
 }
 
-.inside {
+.actions {
   background: #ffffff;
   border-radius: 20px;
   padding: 10px;
-  overflow: hidden;
 }
 
 .user-profile {
-  background: #ffffff;
+  background: #596275;
   margin-bottom: 50px;
   border-radius: 1rem;
   border: 1px solid #555;
@@ -284,5 +242,13 @@ export default {
 .user-profile .communication {
   float: left;
   text-align: left;
+}
+
+.communication h4{
+}
+
+.communication h4 a{
+  color: #f19066;
+  text-decoration: none;
 }
 </style>

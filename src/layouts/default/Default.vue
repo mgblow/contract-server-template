@@ -31,7 +31,7 @@ html {
   font-family: 'Almarai', sans-serif;
 }
 body {
-  background: #444;
+  background: #303952;
 }
 
 .default-page-wrapper {
@@ -39,8 +39,16 @@ body {
   margin: 0;
 }
 
+a{
+  color: #cf6a87;
+}
+
 .page {
   animation: slideUp 0.2s ease-out;
+}
+
+button:active{
+  box-shadow: 0 0 4px #555555;
 }
 
 
@@ -76,4 +84,5 @@ body {
     border-width: 15px;
   }
 }
+
 </style>
