@@ -6,11 +6,11 @@
           <img class="image"
                :src="(post.img) ? post.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'">
           <div class="row content">
-            <div class="user-profile" style="position: absolute;height:60px;width:80px;overflow: hidden;left:10px;float: left;background: red;text-align: center">
-              <div class="image" style="width: 100%;display: inline-block">
-                <img :src="require('@/assets/fox.jpg')" style="width: 40px;height: 40px;">
+            <div class="user-profile" style="width:100px;float: left;background: red;">
+              <div class="image" style="width: 80px;height: 80px;border-radius: 100%;overflow: hidden;">
+                <img :src="require('@/assets/fox.jpg')" style="width: 80px;height: 80px;">
               </div>
-              <h4 style="direction: ltr;font-size: 13px;">
+              <h4 style="direction: ltr;">
                 <router-link to="/profile/@mojtaba">mojtaba</router-link>
               </h4>
             </div>
@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: 'Contracts',
+  name: 'Others',
   components: {},
   data() {
     return {

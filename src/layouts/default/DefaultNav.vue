@@ -51,7 +51,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <router-link to="/mail" v-if="user != null">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-cash-coin"
                  viewBox="0 0 16 16">
@@ -64,8 +64,8 @@
               <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
             </svg>
             &nbsp
-            مکالمات
-          </a>
+            چت
+          </router-link>
         </li>
         <li><a href="#">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -101,10 +101,12 @@
             <span>ورود</span>
           </router-link>
         </li>
-        <li v-if="user != null"><a @click="logout()" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+        <li v-if="user != null"><a @click="logout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power"
+               viewBox="0 0 16 16">
             <path d="M7.5 1v7h1V1h-1z"/>
-            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+            <path
+                d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
           </svg>
           &nbsp
           خروج
@@ -117,13 +119,22 @@
         <div class="input-group mb-2" style="width: 100% !important;">
           <input v-if="showSearch" type="text" class="form-control search-home" placeholder="جست و جو برای ..."
                  style="direction: rtl;">
-          <button @click="() => {showSearch = !showSearch}" class="btn btn-dark nav-menu" style="background: #ea8685;">
+          <button @click="search()" class="btn btn-dark nav-menu" style="background: #ffb142;">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                  class="bi bi-search-heart"
                  viewBox="0 0 16 16">
               <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
               <path
                   d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+            </svg>
+          </button>
+          <button class="btn btn-dark nav-menu" @click="addBox()" style="background: #ff793f;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-patch-plus"
+                 viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                    d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+              <path
+                  d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
             </svg>
           </button>
           <button class="btn btn-dark nav-menu" @click="toggleOptions()" style="background: #596275;">
@@ -158,12 +169,6 @@ export default {
     this.user = getCookie('app-token');
   },
   methods: {
-    toggleNavbar() {
-      this.navbarExpanded = !this.navbarExpanded
-    },
-    collapseNavbar() {
-      this.navbarExpanded = false
-    },
     toggleOptions() {
       this.showOptions = !this.showOptions;
     },
@@ -171,6 +176,13 @@ export default {
       deleteCookie('app-token');
       deleteCookie('app-channel');
       window.location.assign("/");
+    },
+    addBox() {
+      this.$router.push('/box/add');
+    },
+    search() {
+      this.showSearch = !this.showSearch;
+      this.$router.push('/');
     }
 
   }
@@ -179,7 +191,7 @@ export default {
 <style scoped>
 
 .top-header {
-  background: #ea8685;
+  background: #ffb142;
   box-shadow: 0 0 5px #444;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;

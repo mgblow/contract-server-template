@@ -31,7 +31,7 @@ html {
   font-family: 'Almarai', sans-serif;
 }
 body {
-  background: #303952;
+  background: #84817a;
 }
 
 .default-page-wrapper {

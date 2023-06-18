@@ -1,5 +1,5 @@
 <template>
-  <div class="container page" style="padding:0;margin-top: 50px;margin-bottom: 50px;">
+  <div class="container page" style="padding:0;margin-top: 30px;margin-bottom: 50px;">
     <div class="row">
       <div class="col-12 p-1" v-if="!nextStep">
         <div class="box p-2">
@@ -9,7 +9,7 @@
           </div>
           <div class="form-group">
             <label class="mb-2">شماره موبایل</label>
-            <input v-model="phone" type="text" class="form-control"
+            <input v-model="phone" type="number" class="form-control"
                    placeholder="شماره موبایل">
             <small class="form-text text-muted"></small>
           </div>

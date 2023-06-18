@@ -5,9 +5,36 @@ import Box from "../views/Box.vue"
 import Profile from "../views/Profile.vue";
 import AddBox from "../views/AddBox.vue";
 import Login from "../views/Login.vue";
+import Others from "../views/Others.vue";
+import Mail from "../views/Mail.vue";
+import Chat from "../views/Chat.vue";
 
 const history = createWebHashHistory()
 const routes = [
+    {
+        path: '/mail',
+        name: 'Mail',
+        component: Mail,
+        meta: {
+            layout: 'default'
+        }
+    },
+    {
+        path: '/chat/:id',
+        name: 'Chat',
+        component: Chat,
+        meta: {
+            layout: 'default'
+        }
+    },
+    {
+        path: '/others',
+        name: 'Others',
+        component: Others,
+        meta: {
+            layout: 'default'
+        }
+    },
     {
         path: '/login',
         name: 'Login',
